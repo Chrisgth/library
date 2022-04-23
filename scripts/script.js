@@ -15,23 +15,35 @@ function displayBooks () {
     table.innerHTML = '';
     const thead = document.createElement('thead')
     const thContentArray = ['Title', 'Author', 'Pages', 'Read or Not']
-    for ( i = 0; i < 4; i++ ) {
-        let th = document.createElement('th')
-        th.textContent = thContentArray[i];
+    // for ( i = 0; i < 4; i++ ) {
+    //     let th = document.createElement('th')
+    //     th.textContent = thContentArray[i];
+    //     thead.appendChild(th);
+    // }
+    thContentArray.forEach((thContentItem) => {
+        const th = document.createElement('th')
+        th.textContent = thContentItem;
         thead.appendChild(th);
-    }
+    })
     table.appendChild(thead);
     for ( a = 0; a < myLibrary.length; a++ ) {
         const currentBookNumber = myLibrary[a]
         const tablerow = document.createElement('tr')
         tablerow.classList.add('tablerow');
-        for ( i = 0; i < 4; i++) {
-            const currentBook = [currentBookNumber.title, currentBookNumber.author, currentBookNumber.pages, currentBookNumber.isread]
-            let tabledata = document.createElement('td')
-            console.log(currentBook[i]);
-            tabledata.textContent = currentBook[i];
+        // for ( i = 0; i < 4; i++) {
+        //     const currentBook = [currentBookNumber.title, currentBookNumber.author, currentBookNumber.pages, currentBookNumber.isread]
+        //     const tabledata = document.createElement('td')
+        //     console.log(currentBook[i]);
+        //     tabledata.textContent = currentBook[i];
+        //     tablerow.appendChild(tabledata);
+        // }
+        const currentBooks = [currentBookNumber.title, currentBookNumber.author, currentBookNumber.pages, currentBookNumber.isread]
+        currentBooks.forEach((currentBook) => {
+            const tabledata = document.createElement('td')
+            console.log(currentBook);
+            tabledata.textContent = currentBook;
             tablerow.appendChild(tabledata);
-        }
+        })
         table.appendChild(tablerow)
     }
 }
