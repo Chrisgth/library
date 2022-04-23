@@ -26,7 +26,8 @@ function displayBooks () {
         thead.appendChild(th);
     })
     table.appendChild(thead);
-    for ( a = 0; a < myLibrary.length; a++ ) {
+    // for ( a = 0; a < myLibrary.length; a++ ) {
+    myLibrary.forEach((libraryItem) => {
         const currentBookNumber = myLibrary[a]
         const tablerow = document.createElement('tr')
         tablerow.classList.add('tablerow');
@@ -45,7 +46,8 @@ function displayBooks () {
             tablerow.appendChild(tabledata);
         })
         table.appendChild(tablerow)
-    }
+    })
+    // }
 }
 
 //construct an object and push it to a container
