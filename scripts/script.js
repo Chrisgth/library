@@ -29,12 +29,22 @@ function displayBooks(){
             let tabledata = document.createElement('td')
             if (i===3) {
                 let image = document.createElement('img')
-                image.id = "isReadImage"
                 if(currentBookNumber.isread === true){
                     image.src = "images/checkbox-marked.png"
+                    image.alt = "read"
                 } else {
                     image.src = "images/close-box.png"
+                    image.alt = "unread"
                 }
+                image.addEventListener('click', () => {
+                    if(image.alt === "read"){
+                        image.src = "images/close-box.png"
+                        image.alt = "unread"
+                    } else {
+                        image.src = "images/checkbox-marked.png"
+                        image.alt = "read"
+                    }
+                })
                 tabledata.appendChild(image)
                 tablerow.appendChild(tabledata)
             } else {
