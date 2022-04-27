@@ -38,6 +38,48 @@ function addBookToLibrary(title,author,pages,isread){
     myLibrary.push(new Book(title,author,pages,isread))
     displayBooks();
 }
-// create event listener for new book button to provide an input form
+// create event listeners
 const newBook = document.getElementById('newBook')
-// create input form that appears when button is clicked
+const closePopup = document.querySelector('.closeButton')
+const overlay = document.querySelector('.overlay')
+const submit = document.getElementById('submit')
+const popupForm = document.querySelector('.popupForm')
+// create responsiveness using event listeners on buttons
+
+newBook.addEventListener('click', () => {
+    popupForm.classList.add('active')
+    overlay.classList.add('active')
+})
+
+closePopup.addEventListener('click', () => {
+    popupForm.classList.remove('active')
+    overlay.classList.remove('active')
+})
+submit.addEventListener('click', () => {
+    let formData = document.getElementById('newBookForm')
+    let requiredFields = document.getElementById('required')
+    for( i = 0; i<formData.length-1; i++ ) {
+        if(formData.elements[i].value == ''){
+            requiredFields.textContent = 'Please fill out the required fields'
+            return
+        } 
+    }
+    let checkboxValue = false;
+    if (formData.elements[3].value == 'on'){
+        checkboxValue = true;
+    }
+    addBookToLibrary(formData.elements[0].value, formData.elements[1].value, formData.elements[2].value, checkboxValue)
+    popupForm.classList.remove('active')
+    overlay.classList.remove('active')
+    requiredFields.textContent = ''
+
+})
+// function tryingIt(){
+//     let data = document.querySelector('#newBookForm')
+//     let text = ''
+//     for ( i = 0; i<data.length; i++ ){
+//         text += data.elements[i].value + "<br>";
+//     }
+//     document.getElementById('formdata').innerHTML = text;
+// }
+

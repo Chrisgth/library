@@ -24,22 +24,26 @@
                 <div class="title">Add a new book to the library</div>
                 <button class="closeButton">X</button>
             </div>
-            <form action="" method="post" id="newBookForm">
+            <form action="index.html" method="post" id="newBookForm">
                 <div>
-                    <label for="title">Book Title</label>
-                    <input type="text" id="title" name="title">
+                    <label for="title">*Book Title</label>
+                    <input type="text" id="title" name="title" required>
                 </div>
                 <div>
-                    <label for="author">Author</label>
-                    <input type="text" id="author" name="author">
+                    <label for="author">*Author</label>
+                    <input type="text" id="author" name="author" required>
                 </div>
                 <div>
-                    <label for="pages">Number of Pages</label>
-                    <input type="text" id="pages" name="pages">
+                    <label for="pages">*Number of Pages</label>
+                    <input type="text" id="pages" name="pages" required>
                 </div>
                 <div>
                     <label for="isread">Have you read the book?</label>
                     <input type="checkbox" id="isread" name="isread">
+                </div>
+                <div id="submitButtonField">
+                    <button type="button" id="submit">Submit</button>
+                    <p id="required"></p>
                 </div>
         </div>
         </form>
