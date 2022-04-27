@@ -14,7 +14,7 @@ function displayBooks(){
     table.innerHTML = '';
     let thead = document.createElement('thead')
     let thContentArray = ['Title', 'Author', 'Pages', 'Read or Not']
-    for (i=0; i<4; i++){
+    for (i=0; i<4; i++) {
         let th = document.createElement('th')
         th.textContent = thContentArray[i];
         thead.appendChild(th);
@@ -27,8 +27,21 @@ function displayBooks(){
         for (i=0; i<4; i++) {
             let currentBook = [currentBookNumber.title, currentBookNumber.author, currentBookNumber.pages, currentBookNumber.isread]
             let tabledata = document.createElement('td')
-            tabledata.textContent = currentBook[i];
-            tablerow.appendChild(tabledata);
+            if (i===3) {
+                let image = document.createElement('img')
+                image.id = "isReadImage"
+                if(currentBookNumber.isread === true){
+                    image.src = "images/checkbox-marked.png"
+                } else {
+                    image.src = "images/close-box.png"
+                }
+                tabledata.appendChild(image)
+                tablerow.appendChild(tabledata)
+            } else {
+                tabledata.textContent = currentBook[i];
+                tablerow.appendChild(tabledata);
+            }
+
         }
         let removeButton = document.createElement('button')
         removeButton.textContent = 'Remove'
@@ -66,21 +79,21 @@ closePopup.addEventListener('click', () => {
 submit.addEventListener('click', () => {
     let formData = document.getElementById('newBookForm')
     let requiredFields = document.getElementById('required')
-    for( i = 0; i<formData.length-2; i++ ) {
-        if(formData[i].value == ''){
+    for ( i = 0; i<formData.length-2; i++ ) {
+        if (formData[i].value == '') {
             requiredFields.textContent = '*Please fill out the required fields'
             return
         } 
     }
     let checkboxValue = false;
-    if (formData[3].checked){
+    if (formData[3].checked) {
         checkboxValue = true;
     }
     addBookToLibrary(formData[0].value, formData[1].value, formData[2].value, checkboxValue)
     popupForm.classList.remove('active')
     overlay.classList.remove('active')
     requiredFields.textContent = ''
-    for( i=0; i<formData.length-2; i++ ) {
+    for ( i=0; i<formData.length-2; i++ ) {
         formData[i].value = ''
     }
     formData[3].checked = false;

@@ -146,6 +146,11 @@ input {
 	align-items: center;
 	justify-content: space-between;
 }
-#required{
+#required {
 	color: red;
+}
+img {
+	background-color: black;
+	border-radius: 5px;
+	cursor: pointer;
 }
