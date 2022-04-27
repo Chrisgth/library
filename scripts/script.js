@@ -6,7 +6,6 @@ function Book(title, author, pages, isread) {
     this.author = author
     this.pages = pages
     this.isread = isread
-    this.dataNum = myLibrary.length
 }
 // create a function that displays the myLibrary object array in a table
 const table = document.getElementById("books")
@@ -28,13 +27,16 @@ function displayBooks(){
         for (i=0; i<4; i++) {
             let currentBook = [currentBookNumber.title, currentBookNumber.author, currentBookNumber.pages, currentBookNumber.isread]
             let tabledata = document.createElement('td')
-            console.log(currentBook[i]);
             tabledata.textContent = currentBook[i];
             tablerow.appendChild(tabledata);
         }
         let removeButton = document.createElement('button')
-        removeButton.value = currentBookNumber.dataNum
         removeButton.textContent = 'Remove Book'
+        removeButton.addEventListener('click', () => {
+            let index = myLibrary.indexOf(currentBookNumber)
+            myLibrary.splice(index, 1)
+            displayBooks();
+        })
         tablerow.appendChild(removeButton)
         table.appendChild(tablerow)
     }
@@ -42,6 +44,7 @@ function displayBooks(){
 // construct an object and push it to a container
 function addBookToLibrary(title,author,pages,isread){
     myLibrary.push(new Book(title,author,pages,isread))
+    bookInLibrary++;
     displayBooks();
 }
 // create event listeners
