@@ -77,12 +77,3 @@ submit.addEventListener('click', () => {
     }
     formData[3].checked = false;
 })
-// function tryingIt(){
-//     let data = document.querySelector('#newBookForm')
-//     let text = ''
-//     for ( i = 0; i<data.length; i++ ){
-//         text += data.elements[i].value + "<br>";
-//     }
-//     document.getElementById('formdata').innerHTML = text;
-// }
-
