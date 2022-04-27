@@ -58,21 +58,24 @@ closePopup.addEventListener('click', () => {
 submit.addEventListener('click', () => {
     let formData = document.getElementById('newBookForm')
     let requiredFields = document.getElementById('required')
-    for( i = 0; i<formData.length-1; i++ ) {
-        if(formData.elements[i].value == ''){
-            requiredFields.textContent = 'Please fill out the required fields'
+    for( i = 0; i<formData.length-2; i++ ) {
+        if(formData[i].value == ''){
+            requiredFields.textContent = '*Please fill out the required fields'
             return
         } 
     }
     let checkboxValue = false;
-    if (formData.elements[3].checked){
+    if (formData[3].checked){
         checkboxValue = true;
     }
-    addBookToLibrary(formData.elements[0].value, formData.elements[1].value, formData.elements[2].value, checkboxValue)
+    addBookToLibrary(formData[0].value, formData[1].value, formData[2].value, checkboxValue)
     popupForm.classList.remove('active')
     overlay.classList.remove('active')
     requiredFields.textContent = ''
-
+    for( i=0; i<formData.length-2; i++ ) {
+        formData[i].value = ''
+    }
+    formData[3].checked = false;
 })
 // function tryingIt(){
 //     let data = document.querySelector('#newBookForm')
