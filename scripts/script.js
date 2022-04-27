@@ -10,6 +10,7 @@ function Book(title, author, pages, isread) {
 }
 // create a function that displays the myLibrary object array in a table
 const table = document.getElementById("books")
+
 function displayBooks(){
     table.innerHTML = '';
     let thead = document.createElement('thead')
@@ -31,6 +32,10 @@ function displayBooks(){
             tabledata.textContent = currentBook[i];
             tablerow.appendChild(tabledata);
         }
+        let removeButton = document.createElement('button')
+        removeButton.value = currentBookNumber.dataNum
+        removeButton.textContent = 'Remove Book'
+        tablerow.appendChild(removeButton)
         table.appendChild(tablerow)
     }
 }
