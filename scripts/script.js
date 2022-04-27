@@ -65,7 +65,7 @@ submit.addEventListener('click', () => {
         } 
     }
     let checkboxValue = false;
-    if (formData.elements[3].value == 'on'){
+    if (formData.elements[3].checked){
         checkboxValue = true;
     }
     addBookToLibrary(formData.elements[0].value, formData.elements[1].value, formData.elements[2].value, checkboxValue)
