@@ -31,7 +31,7 @@ function displayBooks(){
             tablerow.appendChild(tabledata);
         }
         let removeButton = document.createElement('button')
-        removeButton.textContent = 'Remove Book'
+        removeButton.textContent = 'Remove'
         removeButton.addEventListener('click', () => {
             let index = myLibrary.indexOf(currentBookNumber)
             myLibrary.splice(index, 1)
@@ -44,7 +44,6 @@ function displayBooks(){
 // construct an object and push it to a container
 function addBookToLibrary(title,author,pages,isread){
     myLibrary.push(new Book(title,author,pages,isread))
-    bookInLibrary++;
     displayBooks();
 }
 // create event listeners
