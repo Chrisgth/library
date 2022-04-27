@@ -6,6 +6,7 @@ function Book(title, author, pages, isread) {
     this.author = author
     this.pages = pages
     this.isread = isread
+    this.dataNum = myLibrary.length
 }
 // create a function that displays the myLibrary object array in a table
 const table = document.getElementById("books")
