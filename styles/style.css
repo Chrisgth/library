@@ -30,6 +30,7 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
+	background-color: bisque;
 }
 ol, ul {
 	list-style: none;
@@ -45,6 +46,7 @@ q:before, q:after {
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
+	background-color: white;
 }
 
 thead,
@@ -153,4 +155,16 @@ img {
 	background-color: black;
 	border-radius: 5px;
 	cursor: pointer;
+}
+td {
+	text-align: center;
+	vertical-align: middle;
+	max-width: 200px;
+	height: 100px;
+	overflow: auto;
+}
+tr > button {
+	display: block;
+	margin: auto;
+	margin-top: 40px;
 }
